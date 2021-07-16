@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace=绑定一个对应的Dao/Mapper接口-->
+<mapper namespace="com.hu.mapper.UserMapper">
+
+    <!--select查询语句-->
+    <select id="getUserList" resultType="User">
+        select * from mybatis.user ;
+    </select>
+    <!-- 模糊查询，中文时双%   -->
+    <select id="getUserListLike" resultType="User" parameterType="String">
+        select * from mybatis.user where name like concat('%',#{name},'%') ;
+    </select>
+    <select id="getUser" resultType="User" parameterType="String">
+        select * from user where id=#{id};
+    </select>
+    <!--  插入  -->
+    <insert id="insertUser" parameterType="User">
+        insert into mybatis.user value (#{id},#{name},#{pwd});
+    </insert>
+    <!--  通过map插入 id唯一，不可方法重写 -->
+    <insert id="insertUser2" parameterType="Map">
+        insert into `mybatis`.user value (#{userId},#{userName},#{password});
+    </insert>
+    <!--  修改用户  -->
+    <update id="updateUser" parameterType="User">
+        update mybatis.user set name = #{name} , pwd = #{pwd} where id = #{id} ;
+    </update>
+    <!--  map 修改用户  -->
+    <update id="updateUserPwd" parameterType="Map">
+        update mybatis.user set  pwd = #{pwd} where id = #{id} ;
+    </update>
+    <!-- 删除语句   -->
+    <delete id="delUserById" parameterType="String">
+        delete from mybatis.user where id = #{id} ;
+    </delete>
+</mapper>

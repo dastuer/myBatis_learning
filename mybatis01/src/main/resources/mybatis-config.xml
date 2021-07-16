@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--  给路径下的类指定类名为别名  -->
+    <typeAliases><package name="com.hu.pojo"/></typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--可以给实体类起别名-->
+
+    <mappers>
+    <!--    添加映射器 方法1，资源路径   -->
+    <!--        <mapper resource="com/hu/mapper/UserMapper.xml"/>-->
+    <!--    方法2，映射器，接口路径    -->
+    <!--        <mapper class="com.hu.mapper.UserMapper"/>-->
+    <!--   方法3，扫描包中配置文件     -->
+        <package name="com.hu.mapper"/>
+    </mappers>
+</configuration>
