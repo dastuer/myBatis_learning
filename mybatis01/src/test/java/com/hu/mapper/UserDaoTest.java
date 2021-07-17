@@ -1,6 +1,5 @@
 package com.hu.mapper;
 
-import com.hu.mapper.UserMapper;
 import com.hu.pojo.User;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
@@ -13,10 +12,8 @@ public class UserDaoTest {
     @Test
     public void testDao1(){
         SqlSession session = MybatisUtil.getSession();
-
         List<User> users = session.selectList("getUserList");
         System.out.println(users);
-
         session.close();
     }
     @Test
@@ -37,7 +34,7 @@ public class UserDaoTest {
     public void testAddUser(){
         SqlSession session = MybatisUtil.getSession();
         UserMapper mapper = session.getMapper(UserMapper.class);
-        mapper.insertUser(new User("a004","里啊","sabdhjsdja"));
+        mapper.insertUser(new User("a001","是啊","sabdsadhjsdja"));
 //        增删改必须提交事务
         session.commit();
         session.close();

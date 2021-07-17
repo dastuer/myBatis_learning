@@ -11,12 +11,16 @@
     </properties>
     <!--  设置  -->
     <settings>
+        <!--   使用标准日志输出     -->
+        <!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+        <!--    log4j日志输出    -->
+        <setting name="logImpl" value="LOG4J"/>
         <setting name="cacheEnabled" value="true"/>
         <setting name="lazyLoadingEnabled" value="true"/>
     </settings>
     <typeAliases>
         <!--   指定别名     -->
-        <typeAlias type="com.hu.pojo.User" alias="usr"/>
+        <typeAlias type="com.hu.pojo.User02" alias="usr"/>
         <!--  给路径下的类(javabean)指定类名为别名 ,为类名小写 -->
         <package name="com.hu.pojo"/>
     </typeAliases>
@@ -48,9 +52,9 @@
     </environments>
     <mappers>
     <!--    添加映射器 方法1，资源路径   -->
-    <!--        <mapper resource="com/hu/mapper/UserMapper.xml"/>-->
+    <!--        <mapper resource="com/hu/mapper/UserMapper02.xml"/>-->
     <!--    方法2，映射器，接口路径    -->
-            <mapper class="com.hu.mapper.UserMapper"/>
+            <mapper class="com.hu.mapper.UserMapper02"/>
     <!--    方法3，扫描包中配置文件     -->
     <!--        <package name="com.hu.mapper"/>-->
     </mappers>

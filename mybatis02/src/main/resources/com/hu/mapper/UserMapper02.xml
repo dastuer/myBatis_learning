@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace=绑定一个对应的Dao/Mapper接口-->
+<mapper namespace="com.hu.mapper.UserMapper02">
+    <!--  简单结果集映射  -->
+    <resultMap id="userMap" type="user02">
+    <!--   映射不同名字段      -->
+        <result property="password" column="pwd"/>
+    </resultMap>
+    <!--select查询语句-->
+    <!--  引用它的语句中设置 resultMap 属性就行了（注意我们去掉了 resultType 属性）  -->
+    <select id="getUserList" resultMap="userMap">
+        select * from mybatis.user ;
+    </select>
+    <select id="getUserListRowBound" resultMap="userMap">
+        select * from mybatis.user ;
+    </select>
+    <!--  map实现分页  -->
+    <select id="getUserListByLimit" parameterType="map" resultMap="userMap">
+        select *from mybatis.user limit #{startPage},#{pageSize};
+    </select>
+
+</mapper>

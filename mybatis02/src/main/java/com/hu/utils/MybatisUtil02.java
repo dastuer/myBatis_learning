@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class MybatisUtil {
+public class MybatisUtil02 {
     private static SqlSessionFactory factory = null;
     static {
         try {

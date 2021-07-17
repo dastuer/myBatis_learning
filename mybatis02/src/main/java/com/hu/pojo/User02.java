@@ -3,20 +3,20 @@ package com.hu.pojo;
 import org.apache.ibatis.type.Alias;
 
 
-public class User {
+public class User02 {
     private String id;
     private String name;
-    private String pwd;
-    public User() {
+    private String password;
+    public User02() {
     }
-    public User(String id, String pwd) {
+    public User02(String id, String password) {
         this.id = id;
-        this.pwd = pwd;
+        this.password=password;
     }
-    public User(String id, String name, String pwd) {
+    public User02(String id, String name, String password) {
         this.id = id;
         this.name = name;
-        this.pwd = pwd;
+        this.password = password;
     }
 
     public String getId() {
@@ -36,19 +36,19 @@ public class User {
     }
 
     public String getPwd() {
-        return pwd;
+        return password;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setPwd(String password) {
+        this.password = password;
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "User02{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", pwd='" + pwd + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

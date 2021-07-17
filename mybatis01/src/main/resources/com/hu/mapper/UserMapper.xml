@@ -6,30 +6,30 @@
 <mapper namespace="com.hu.mapper.UserMapper">
 
     <!--select查询语句-->
-    <select id="getUserList" resultType="User">
+    <select id="getUserList" resultType="user">
         select * from mybatis.user ;
     </select>
     <!-- 模糊查询，中文时双%   -->
-    <select id="getUserListLike" resultType="User" parameterType="String">
+    <select id="getUserListLike" resultType="user" parameterType="String">
         select * from mybatis.user where name like concat('%',#{name},'%') ;
     </select>
-    <select id="getUser" resultType="User" parameterType="String">
+    <select id="getUser" resultType="user" parameterType="String">
         select * from user where id=#{id};
     </select>
     <!--  插入  -->
-    <insert id="insertUser" parameterType="User">
+    <insert id="insertUser" parameterType="user">
         insert into mybatis.user value (#{id},#{name},#{pwd});
     </insert>
     <!--  通过map插入 id唯一，不可方法重写 -->
-    <insert id="insertUser2" parameterType="Map">
+    <insert id="insertUser2" parameterType="map">
         insert into `mybatis`.user value (#{userId},#{userName},#{password});
     </insert>
     <!--  修改用户  -->
-    <update id="updateUser" parameterType="User">
+    <update id="updateUser" parameterType="user">
         update mybatis.user set name = #{name} , pwd = #{pwd} where id = #{id} ;
     </update>
     <!--  map 修改用户  -->
-    <update id="updateUserPwd" parameterType="Map">
+    <update id="updateUserPwd" parameterType="map">
         update mybatis.user set  pwd = #{pwd} where id = #{id} ;
     </update>
     <!-- 删除语句   -->
